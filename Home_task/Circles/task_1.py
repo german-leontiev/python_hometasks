@@ -14,6 +14,5 @@ print('Задача 1. Кубы чисел')
 number =int(input('Введите число: '))
 line = 0
 while line != number:
-    line ** 3
     line += 1
     print(line, '** 3 =', line ** 3)
