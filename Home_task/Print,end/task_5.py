@@ -19,16 +19,14 @@ while op != 'Stop':
             startB += 1
         elif symbol == 's' or symbol == 'S':
             startB -= 1
-        if startA == 15:
+        elif startA == 15:
             startA -= 1
-        elif startA == 0:
+        if startA == 0:
             startA += 1
-        print('Стена,вернулись на прошлую позицию ',startA,startB)
-        if startB == 20:
-             startB -= 1
-        elif startB == 0:
-             startB += 1
-        print('Стена,вернулись на прошлую позицию ',startA,startB)
+            print('Стена,вернулись на прошлую позицию ',startA,startB)
+        elif startB == 20:
+            startB -= 1
+            print('Стена,вернулись на прошлую позицию ',startA,startB)
 
 
 
