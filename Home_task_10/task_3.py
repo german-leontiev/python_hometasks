@@ -44,5 +44,6 @@ for time in range(reverse_timer, 0, -1):
         print('Ваша еда готова, можете забрать')
         print('на таймере осталось: ', time, 'секунд')
         break
-    else:
-        print('Ваша еда готова, осторожно горячo!')
+    if time == 1:
+        print('Ваша еда готова. Осторожно, горячo!')
+        break
