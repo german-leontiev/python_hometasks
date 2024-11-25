@@ -15,7 +15,7 @@ import random
 
 num = [random.randint(0,2) for i in range(int(input('Количество чисел в списке: ')))]
 
-num_list= [num[i] for i in num if num[i] != 0]
+num_list= [i for i in num if i != 0]
 
 print('Список до сжатия:',num)
 print(' Список после сжатия:',num_list)

@@ -11,6 +11,6 @@
 
 num =int(input('Введите длину списка: '))
 
-num_list = [(1 if i % 2 == 0 else i % 5) for i in range(1,num+1)]
+num_list = [(i % 5 if i % 2 else 1) for i in range(num)]
 
 print(num_list)
