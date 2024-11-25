@@ -21,16 +21,17 @@ print('Задача 2. Функция максимума')
 
 
 
-ansver = 0
+answer = 0
 
-def maximum_of_two():
+def maximum_of_two(a,b):
     if a > b:
-        return ansver == a
-    return ansver == b
+        return  a
+    return  b
 
 def maximum_of_three(a, b, c):
-    if maximum_of_two() > c:
-        return print('Самое большое число: ',ansver)
+    answer = maximum_of_two(a,b)
+    if answer > c:
+        return print('Самое большое число: ',answer)
     else:
         return print('Самое большое число: ',c)
 

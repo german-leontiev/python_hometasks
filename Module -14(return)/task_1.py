@@ -27,9 +27,16 @@ def dot(x):
     while x < 1:
         b -= 1
         x *= 10
-    return 'Формат плавающей точки: x = 'f'{x} * 10 ** {b}'
+    return 'Формат плавающей точки: x = 'f'{round(x,5)} * 10 ** {b}'
+
 
 x =float(input('Введите число: '))
-if x <= 0:
+while x <= 0:
     print('Число не может быть меньше 0,или равно 0')
-print(dot(x))
+    break
+else:print(dot(x))
+
+
+
+
+
