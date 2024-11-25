@@ -37,11 +37,11 @@ for i in range(7):
 print('Первый список: ',list_1)
 print('Второй список: ',list_2)
 
-list_1.extend(list_2)
 
-for i in range(len(list_1)):
-    while list_1.count(i) >= 2:
-        list_1.remove(i)
 
+for i in list_2:
+    if i not in list_1:
+        list_1.append(i)
+    
 
 print(list_1)

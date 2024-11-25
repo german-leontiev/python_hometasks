@@ -32,10 +32,10 @@ for i in range(leg):
     leg_list.append(leg_size)
 
 count = 0
-for i in leg_list:
-    for a in kon_list:
+for i in kon_list:
+    for a in leg_list:
         if i == a:
-            kon_list.remove(i)
+            leg_list.remove(i)
             count += 1
 
 print('Наибольшее кол-во людей, которые могут взять ролики: ', count)
