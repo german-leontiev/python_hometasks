@@ -54,3 +54,25 @@
 # Peter_II 2
 
 # Peter_III 2
+
+
+count =int(input('Введите количество человек: '))
+
+parents ={}
+rost ={}
+
+for i in range(count -1):
+    kid,adult =input(f'{i +1} пара через пробел: ').split()
+    parents[kid] = adult
+    rost[kid] = 0
+    rost[adult] = 0
+
+for i in parents:
+    man = i
+    while man in parents:
+        man = parents[man]
+        rost[i] += 1
+
+print('“Высота” каждого члена семьи: ')
+for i in sorted(rost):
+    print(i, rost[i])

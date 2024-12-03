@@ -38,22 +38,21 @@
 #     Интересная: 5
 
 
-# pizza ={}
-# count =int(input('Введите кол-во заказов: '))
+pizza ={}
+count =int(input('Введите кол-во заказов: '))
 
 
-# for i in range(count):
-#     pers =input(f'{i +1} заказ: ').split()
-#     pizza[pers[0]] = pers[0]
-#     pizza[pers[1]] = pers[1]
-#     pizza[pers[2]] = pers[2]
-#     if pers[0] in pizza:
-#         pizza[pers[0]][pers[1]] = pers[2]
-#     elif pers[1] in pizza[0]:
-#         pizza[pers[0]][pers[1]] += int(pers[2])
-#     else:
-#         pizza[pers[0]] = dict({pers[1]:int(pers[2])})
+for i in range(count):
+    pers =input(f'{i +1} заказ: ').split()
+    if pers[0] not in pizza:
+        pizza[pers[0]] = dict({pers[1]:int(pers[2])}) 
+    elif pers[1] in pizza[pers[0]]:
+        pizza[pers[0]][pers[1]] += int(pers[2])
+    else:
+        pizza[pers[0]][pers[1]] = pers[2]
 
 
-# print(pizza)
-# print(pizza.values())
+for i in pizza:
+    print(i)
+    for _ in pizza[i]:
+        print('   ',_, ':', pizza[i][_] )
