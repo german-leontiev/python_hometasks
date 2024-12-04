@@ -18,9 +18,10 @@
 # Это надёжный пароль!
 
 
-count = 0
-count_big = 0
+
 while True:
+    count = 0
+    count_big = 0
     text =input('Придумайте пароль: ')
     if len(text) >= 8:
         for i in range(len(text)):

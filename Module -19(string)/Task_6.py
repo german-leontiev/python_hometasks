@@ -14,13 +14,21 @@
 
 # Закодированная строка: a2A2b2с1a3A1
 
-text =input('Введите строку:')
+text = input('Введите строку: ')
 
-text_l = ''
-for i in range(len(text)):
-    if i == text.find(text[i]):
-        text_l += text[i]
-        text_l += str(text.count(text[i]))
-print('Закодированная строка: ',text_l)
+encoded_text = ''
+current_char = text[0]
+count = 1
 
-#По всякому пробовал.Через цикл c счетчиком как вар,но у меня жижа получилась,к тому же,тема урока то не циклы,полюбому можно как то без циклов,но я хз как
+for i in range(1, len(text)):
+    if text[i] == current_char:
+        count += 1
+    else:
+        encoded_text += current_char + str(count)
+        current_char = text[i]
+        count = 1
+
+encoded_text += current_char + str(count)
+
+print('Закодированная строка:', encoded_text)
+
