@@ -39,9 +39,7 @@ print('Второй список: ',list_2)
 
 
 
-for i in list_2:
-    if i not in list_1:
-        list_1.append(i)
-    
+list_1 = set(list_2)
+list_1 = list(list_1)
 
 print(list_1)
