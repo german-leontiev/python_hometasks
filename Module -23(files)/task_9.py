@@ -24,3 +24,4 @@ for i in text.read():
     if i in sym:
         sym_count += 1
 
+# Сортировку забыл(
