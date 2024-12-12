@@ -33,8 +33,7 @@ with open('first_tour.txt', 'r') as first_tour:
         print(i,end ='')
 
 
-
-
+# это тоже не смог сделать*
 
 
 
