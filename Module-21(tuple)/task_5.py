@@ -25,11 +25,11 @@ family = {
     ('Сидоров Павел'): (10)
     }
 
-text=input('Введите фамилию: ')
+text=input('Введите фамилию: ').lower()
 
-for i in family:
-    if 'Сидоров' or 'Сидорова' in i:
-        print(i,family[i])
-    else:
-        print('Нет таких')
+for i, v in family.items():
+    if text in i.lower().split()[0]:
+        print(i, v)
+else:
+    print('Таких нет')
 

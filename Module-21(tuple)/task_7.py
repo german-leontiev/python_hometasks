@@ -3,11 +3,10 @@
 # Если хотя бы один элемент не является целым числом, то функция возвращает исходный кортеж.
 
 def main(cort):
-    for i in cort:
-        if i == str(i):
-            return cort
+    if all(isinstance(i, int) for i in cort):
+        return tuple(sorted(cort))
     else:
-        return sorted(cort)
+        return cort
     
 cort = (1,3,4,23,3,2,1,5,7,1,)
 

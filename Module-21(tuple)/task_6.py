@@ -14,7 +14,7 @@ lst =[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 new_lst = []
 
 cort =()
-for i in lst:
+for i in range(len(lst)):
     if i % 2 == 0:
         new_lst.append((lst[i],lst[i +1]))
         cort += (lst[i],lst[i +1]),

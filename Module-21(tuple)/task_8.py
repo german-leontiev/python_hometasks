@@ -25,9 +25,9 @@ while True:
 
     if text == 1:
         name,surname =input('Введите имя и фамилию контакта ').title().split()
-        pers = (name,surname)
+        pers = (surname,name)
 
-        if name in phonebook:
+        if pers in phonebook:
             print('Такой контакт уже есть')
 
         else:
@@ -37,12 +37,12 @@ while True:
 
     elif text == 2:
         find_key =input('Введите фамилию контака ').title()
-        # end =('ов','ова')   не получилось с окончаниями
-        for i,v in phonebook.items():
-            if find_key == i[0]:
-                print(i,v)
-    elif find_key != i[0]:
-        print('Такого контакта нет')
+        found_contacts = [i for i, v in phonebook.items() if find_key.lower() == i[0].lower()]
+        if found_contacts:
+            for contact in found_contacts:
+                print(contact, phonebook[contact])
+        else:
+            print('Такого контакта нет')
 
     elif text == 3:
         print('BB')
