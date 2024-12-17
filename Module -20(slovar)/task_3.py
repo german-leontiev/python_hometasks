@@ -107,5 +107,9 @@ data = {
 print(data.keys(),data.values())
 data['ETH']['total_diff'] = 100
 data['tokens'][0]['fst_token_info']['name'] = 'doge'
-data['ETH']['totalOut'] = data['tokens'][0].pop('total_out')
 data['tokens'][1]['sec_token_info']['total_price'] = data['tokens'][1]['sec_token_info'].pop('price')
+total_out = sum(token.get("total_out", 0) for token in data["tokens"])
+for i in data["tokens"]:
+    i.pop("total_out", None)
+data["ETH"]["totalOut"] += total_out
+print(data.keys(),data.values())

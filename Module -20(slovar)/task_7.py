@@ -49,10 +49,10 @@ for i in range(count):
     elif pers[1] in pizza[pers[0]]:
         pizza[pers[0]][pers[1]] += int(pers[2])
     else:
-        pizza[pers[0]][pers[1]] = pers[2]
+        pizza[pers[0]][pers[1]] = int(pers[2])
 
 
-for i in pizza:
+for i in sorted(pizza.keys()):
     print(i)
-    for _ in pizza[i]:
+    for _ in sorted(pizza[i].keys()):
         print('   ',_, ':', pizza[i][_] )
