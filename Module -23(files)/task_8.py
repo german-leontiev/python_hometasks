@@ -26,37 +26,41 @@
 
 import string
 
-with open('bymashka.txt', 'w') as text:
-    text.write(input('Введите что нибудь '))
 
-with open('bymashka.txt', 'r') as text:
-    print('Содержимое файла bymashka.txt: ')
+with open('text.txt', 'w') as text:
+    text.write(input('Введите что-нибудь: '))
+
+
+with open('text.txt', 'r') as text:
+    print('Содержимое файла text.txt: ')
     for i in text:
-            print(i ,end ='')
+        print(i, end='')
 
-with open('bymashka.txt', 'r') as text:
+
+with open('text.txt', 'r') as text:
     a = {}
     count = 0
     for i in text.read():
-        if i in a:
+        if i.lower() in string.ascii_lowercase: #Спс ИИ
+            if i.lower() in a:
+                a[i.lower()] += 1
+            else:
+                a[i.lower()] = 1
             count += 1
-            a[i.lower()] += 1
-        if i not in a and i not in string.punctuation and not i == ' ':
-            count += 1
-            a[i.lower()] = 1
 
 for i in a:
-    a[i] = round(int(a[i]) / count,3)
-b = sorted(a.items())
-rare = dict(a)
+    a[i] = round(a[i] / count, 3)
+
+
+b = sorted(a.items(), key=lambda x: (-x[1], x[0]))
+
 
 with open('analysis.txt', 'w') as anal:
-    for i,v in rare.items():
-        anal.write(str(i))
-        anal.write(': ')
-        anal.write(str(v))
-        anal.write('\n')
+    for i, v in b:
+        anal.write(f'{i} {round(v,3)}\n')
+
+
 with open('analysis.txt', 'r') as anal:
     print('\nСодержимое файла analysis.txt:')
     for i in anal:
-        print(i, end ='')
+        print(i, end='')

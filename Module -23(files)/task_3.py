@@ -18,13 +18,15 @@ letter_count = 0
 word_count = 0
 str_count = 0
 rare = {}
+for i in zen.readlines():
+    str_count += 1
+
+for i in zen.read().split():
+    word_count += 1
+
 for i in zen.read():
     if i in text:
         letter_count += 1
-    if i != ' ':
-        word_count += 1
-    if i == '\n':
-        str_count += 1
     if i in rare:
         rare[i] += 1
     else:
