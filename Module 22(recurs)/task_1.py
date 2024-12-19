@@ -18,23 +18,12 @@
 # 9
 # 10
 
-# def main(num):
-#     if num < 1:
-#         return
-#     main(num -1)
-#     print(num)
-
-    
-# a =int(input('Введите num: '))
-# main(a)
-
-def main(num, num_2):
-    if num >= num_2:
+def main(num):
+    if num < 1:
         return
-    main(num +1,num_2)
+    main(num -1)
     print(num)
 
     
 a =int(input('Введите num: '))
-b =int(input('Введите num: '))
-main(a,b)
+main(a)

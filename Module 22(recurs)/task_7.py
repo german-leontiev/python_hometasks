@@ -19,17 +19,16 @@
 
 # Ответ в консоли: 15
 
-def main(num):
-    result = []
-    for i in num:
-        if isinstance(i, list):
-            result.extend(num(i))
-        else:
-            result.append(i)
-    answer =main(num)
-    return sum(answer)
-    
+def sum(*args):
+    total_sum = 0
+    for arg in args:
+        if isinstance(arg, list):  
+            total_sum += sum(*arg) 
+        elif isinstance(arg, (int, float)):  
+            total_sum += arg 
+    return total_sum
 
 
-primer = [[1, 2, [3]], [1], 3]
-print(main(primer))
+
+print(sum([[1, 2, [3]], [1], 3]))
+print(sum(1, 2, 3, 4, 5))
