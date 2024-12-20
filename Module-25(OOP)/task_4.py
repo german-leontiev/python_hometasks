@@ -37,13 +37,13 @@ class Parent:
 
     def tishe(self):
         for i in self.kid_lst:
-            if 'Баляя суету навести охото' in i.sueta:
+            if i.sueta == 'Баляя суету навести охото':
                 print(f'\n{i.name} говорит: Баляя суету навести охото \n{self.name} угомонил пиздюка {i.name} ')
                 i.sueta = 'Спокоен'
 
     def eat(self):
         for i in self.kid_lst:
-            if 'Голоден' in i.eda:
+            if i.eda == 'Голоден':
                 print(f'\n{i.name} хочет "Вкусно и Точка"\n{self.name} покормил пиздюка {i.name}')
                 i.eda = 'Сыт'
 

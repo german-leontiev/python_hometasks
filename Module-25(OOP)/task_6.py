@@ -61,7 +61,7 @@ class Water:
         elif other.elem == 'Огонь':
             return Steam()
         elif other.elem == 'Земля':
-            return (Mud)
+            return Mud()
         else:
             return None
         
