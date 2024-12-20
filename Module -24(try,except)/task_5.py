@@ -50,22 +50,39 @@
 # Введите исправленную строку: 20 - 2
 # Сумма результатов: 157.75
 
-with open('calc.txt','w') as file:
-    file.write('100 + 34\n')
-    file.write('10 +* 3\n')
-    file.write('20 -* 2\n')
-    file.write('23 / 4')
+def calculate(expression):
+    for op in ['+', '-', '*', '/']:
+        if op in expression:
+            operand1, operand2 = expression.split(op)
+            operand1, operand2 = float(operand1), float(operand2)
+            if op == '+':
+                return operand1 + operand2
+            elif op == '-':
+                return operand1 - operand2
+            elif op == '*':
+                return operand1 * operand2
+            elif op == '/':
+                if operand2!= 0:
+                    return operand1 / operand2
+                else:
+                    raise ZeroDivisionError("Деление на ноль!")
+    raise ValueError("Неверный формат выражения")
 
-
-result =[]
+result = []
 with open('calc.txt', 'r') as file:
     for i in file.readlines():
+        i = i.strip()
         try:
-            result.append(eval(i)) #А так можно? Именно для этой задачи можно,но лучше не над?
-        except:
-            q =input((f'Обнаружена ошибка в строке: {i} Хотите исправить? '))
+            result.append(calculate(i))
+        except Exception as e:
+            print(f"Обнаружена ошибка в строке: {i}. {str(e)}")
+            q = input('Хотите исправить? ')
             if q.lower() == 'да':
-                line = input('Введите исправленную строку:')
-                result.append(eval(line))
-print('Сумма результатов: ',sum(result))
+                line = input('Введите исправленную строку: ')
+                try:
+                    result.append(calculate(line))
+                except Exception as e:
+                    print(f"Ошибка в исправленной строке: {line}. {str(e)}")
+
+print('Сумма результатов: ', sum(result))
 

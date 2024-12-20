@@ -39,21 +39,22 @@ with open('people.txt', 'w') as people:
 
 
 
-count = 0
-summ = 0
-error = ''
 with open('people.txt', 'r') as people:
-        for i in people:
-            print(i, end= '')
-            lenght = len(i.strip())
-            summ += lenght
-            if i.endswith('\n'):
-                count += 1
-            try:
-                if lenght < 3:
-                    raise ValueError
-            except ValueError:
-                error += f'Ошибка: менее трёх символов в строке {count}'
+    count = 0
+    summ = 0
+    error = ''
+    for i in people:
+        print(i, end='')
+        length = len(i.strip())
+        summ += length
+        count += 1  #Аааааа
+        try:
+            if length < 3:
+                raise ValueError
+        except ValueError:
+            error += f'Ошибка: менее трёх символов в строке {count}'
+
+
 
 
 print(f'\n\nОбщее количество символов {summ}')

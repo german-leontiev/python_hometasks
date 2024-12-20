@@ -40,21 +40,25 @@ import string
 def main(name, mail, age):
     try:
         if not name.isalpha():
-            raise NameError(".................Поле «Имя» содержит НЕ только буквы")
+            raise NameError("Поле «Имя» содержит НЕ только буквы")
         if '@' not in mail or '.' not in mail:
-            raise SyntaxError(".................Поле «Имейл» НЕ содержит @ и . (точку)")
+            raise SyntaxError("Поле «Имейл» НЕ содержит @ и. (точку)")
         if  int(age) >= 99 or int(age) <= 10:
-            raise ValueError(".................Поле «Возраст» НЕ является числом от 10 до 99")
+            raise ValueError("Поле «Возраст» НЕ является числом от 10 до 99")
     except ValueError as e:
-        raise ValueError(".................Поле «Возраст» НЕ является числом от 10 до 99") from e
+        raise ValueError("Поле «Возраст» НЕ является числом от 10 до 99") from e
     except (NameError, SyntaxError) as e:
         raise e
 
+
 def process_registration(line, good_log, bad_log):
     try:
-        name, mail, age =line.strip().split()
+        parts = line.strip().split()
+        if len(parts)!= 3:
+            raise IndexError("Недостаточно данных в строке")
+        name, mail, age = parts
         main(name, mail, age)
-        good_log.write(f"{name}{mail}{age}\n")
+        good_log.write(f"{name} {mail} {age}\n")
     except (IndexError, NameError, SyntaxError, ValueError) as e:
         bad_log.write(f"{line.strip()}{str(e)}\n")
 
