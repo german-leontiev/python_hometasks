@@ -21,10 +21,10 @@ rare = {}
 for i in zen.readlines():
     str_count += 1
 
-for i in zen.read().split():
+for i in zen.seek(0).split():
     word_count += 1
 
-for i in zen.read():
+for i in zen.seek(0):
     if i in text:
         letter_count += 1
     if i in rare:
