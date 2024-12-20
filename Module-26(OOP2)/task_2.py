@@ -59,7 +59,7 @@ def one_day(count, monk):
     if ne_povezlo == 1:
         with open('karma.log', 'a') as karma:
             karma.write(f'День: {count}    Что случилось - {error.__doc__}\n')
-        return False
+        raise error(f'На {count} день монах {monk.name} столкнулся с проблемой: {error.__doc__}')
     else:
         monk.increase_ascendancy(randint(1, 7))
         return True
@@ -69,8 +69,10 @@ monk = Monk('Зелемхан Пулеметчик')
 count = 0
 while monk.get_ascendancy() < 500:
     count += 1
-    if not one_day(count, monk):
-        print(f'Монах {monk.name} столкнулся с проблемой на {count} день')
+    try:
+        one_day(count, monk)
+    except Exception as e:
+        print(e)
     if monk.get_ascendancy() >= 500:
         print('Вы стали богом, но...')
         with open('karma.log', 'r') as karma:

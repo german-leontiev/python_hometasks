@@ -9,9 +9,8 @@
 
 class MyDict(dict):  
 
-    def get(self, key, default=None):  
-        super().get(key,default)  
+    def get(self, key):   
         return dict.get(self,key) or 0
     
 d = MyDict({'a':1,'s':2,'d':3})
-print(d.get('a'),d.get('v'))
+print(d.get('a'),d.get('d'))
